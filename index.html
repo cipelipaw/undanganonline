@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pernikahan Dimas & Diva - 08.11.2026</title>
+  <title>The Wedding of Dimas & Diva - 08.11.2026</title>
   
   <!-- Favicon & Meta -->
   <meta name="description" content="Undangan Pernikahan Prasetya Dimas Arvianto & Diva Danica - Minggu, 8 November 2026">
   <meta property="og:title" content="The Wedding of Dimas & Diva">
   <meta property="og:description" content="Minggu, 8 November 2026. Kami mengundang Bapak/Ibu/Saudara/i untuk hadir dalam hari bahagia kami.">
-  <meta property="og:image" content="Assets/couple-hero.jpg">
+  <meta property="og:image" content="Assets/couple-hands.jpg">
 
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -76,13 +76,6 @@
       box-shadow: 0 10px 30px -5px rgba(51, 78, 104, 0.08), 0 0 0 1px rgba(130, 154, 177, 0.15);
     }
 
-    .glass-card-dark {
-      background: rgba(16, 42, 67, 0.85);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(159, 179, 200, 0.25);
-    }
-
     /* Floating particles / petals canvas */
     #petalsCanvas {
       position: fixed;
@@ -94,7 +87,7 @@
       z-index: 30;
     }
 
-    /* Motion Floral Sway Animations (seperti Motion-06) */
+    /* Motion Floral Sway Animations */
     @keyframes flowerSwayLeft {
       0%, 100% { transform: rotate(0deg) scale(1); }
       50% { transform: rotate(5deg) scale(1.04); }
@@ -223,47 +216,37 @@
 
   <!-- ========================================== -->
   <!-- 1. FULLSCREEN COVER / AWALAN BUKA UNDANGAN -->
+  <!-- (SESUAI REQUEST USER: FOTO COUPLE-HANDS DILENGKAPI TEKS & TOMBOL KAPSUL) -->
   <!-- ========================================== -->
   <section id="coverScreen" class="fixed inset-0 z-50 flex items-center justify-center overflow-hidden bg-ash-900">
-    <!-- Background Couple Photo with Blur Overlay -->
-    <div class="absolute inset-0 bg-cover bg-center opacity-40 scale-105 filter blur-sm transition-transform duration-1000" style="background-image: url('Assets/couple-hero.jpg');"></div>
-    <div class="absolute inset-0 bg-gradient-to-b from-ash-900/80 via-ash-900/60 to-ash-900/95"></div>
+    <!-- Background: Foto Pegangan Tangan couple-hands.jpg -->
+    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-1000 scale-100" style="background-image: url('Assets/couple-hands.jpg');"></div>
+    <!-- Soft Vignette & Dark Overlay for Crisp White Typography -->
+    <div class="absolute inset-0 bg-gradient-to-b from-black/60 via-black/35 to-black/75"></div>
 
-    <!-- Swaying Corner Ornaments -->
-    <img src="Assets/ornament-corner.png?v=2" alt="Floral Corner" class="absolute -top-12 -left-12 w-48 sm:w-64 opacity-80 pointer-events-none select-none sway-left">
-    <img src="Assets/ornament-corner.png?v=2" alt="Floral Corner" class="absolute -bottom-12 -right-12 w-48 sm:w-64 opacity-80 pointer-events-none select-none sway-bottom-right">
-
-    <!-- Card Content -->
-    <div class="relative z-10 max-w-lg w-11/12 mx-auto text-center px-6 py-10 rounded-3xl glass-card-dark shadow-2xl border border-ash-400/30">
+    <!-- Center Content -->
+    <div class="relative z-10 max-w-sm w-11/12 mx-auto text-center px-4 py-8 flex flex-col items-center justify-center min-h-[500px]">
       
-      <!-- Wreath Monogram -->
-      <div class="relative w-36 h-36 mx-auto mb-3 flex items-center justify-center">
-        <img src="Assets/ornament-wreath.png?v=2" alt="Floral Wreath" class="absolute inset-0 w-full h-full object-contain pulse-motion">
-        <div class="text-center">
-          <span class="font-serif text-3xl font-bold tracking-widest text-ash-100">D & D</span>
-        </div>
+      <p class="font-serif text-sm tracking-[0.3em] uppercase text-white/90 mb-1 drop-shadow">The Wedding of</p>
+      
+      <!-- Groom First: Dimas & Diva -->
+      <h1 class="font-script text-6xl sm:text-7xl text-white font-normal mb-8 drop-shadow-md tracking-wide">
+        Dimas & Diva
+      </h1>
+
+      <!-- Kepada Yth Box -->
+      <div class="mb-8 text-white drop-shadow">
+        <p class="text-xs uppercase tracking-widest text-white/80 font-light mb-1.5">Kepada Yth. Bapak/Ibu/Saudara/i</p>
+        <h3 id="guestNameDisplay" class="text-2xl sm:text-3xl font-bold text-white tracking-wide">Nama Tamu</h3>
       </div>
 
-      <p class="text-xs uppercase tracking-[0.35em] text-ash-200 font-medium mb-2">The Wedding Celebration Of</p>
-      
-      <!-- Groom first -->
-      <h1 class="font-script text-5xl sm:text-6xl text-white font-normal mb-1 drop-shadow-sm">Dimas & Diva</h1>
-      <p class="font-serif text-sm tracking-widest text-ash-300 italic mb-5">Minggu, 08 November 2026</p>
-
-      <!-- Guest Name Box -->
-      <div class="my-5 py-4 px-5 rounded-2xl bg-white/10 backdrop-blur-md border border-white/15 text-ash-100 shadow-inner">
-        <p class="text-xs tracking-wider text-ash-300 uppercase mb-1">Kepada Yth. Bapak/Ibu/Saudara/i:</p>
-        <h3 id="guestNameDisplay" class="text-xl sm:text-2xl font-bold text-white tracking-wide">Tamu Undangan</h3>
-        <p class="text-[11px] text-ash-300 italic mt-1">*Mohon maaf bila ada kesalahan penulisan nama/gelar</p>
-      </div>
-
-      <!-- Open Button -->
-      <button onclick="openInvitation()" class="relative inline-flex items-center gap-3 px-8 py-3.5 rounded-full bg-gradient-to-r from-ash-600 via-ash-500 to-ash-400 hover:from-ash-500 hover:to-ash-300 text-white font-medium shadow-xl shadow-ash-900/60 hover:shadow-ash-500/40 transform hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300">
-        <i class="fa-regular fa-envelope-open text-lg"></i>
-        <span class="tracking-wider uppercase text-sm font-semibold">Buka Undangan</span>
+      <!-- Capsule Open Button (Persis seperti contoh screenshot user) -->
+      <button onclick="openInvitation()" class="inline-flex items-center gap-2.5 px-8 py-3 rounded-full bg-[#1b506f]/90 hover:bg-[#153f58] border-2 border-white/60 text-white font-medium shadow-2xl backdrop-blur-sm transform hover:scale-105 active:scale-95 transition-all duration-300">
+        <i class="fa-regular fa-envelope-open text-base"></i>
+        <span class="tracking-wider uppercase text-xs sm:text-sm font-semibold">Buka Undangan</span>
       </button>
 
-      <p class="text-[11px] text-ash-300/80 mt-4 flex items-center justify-center gap-1.5">
+      <p class="text-[11px] text-white/70 mt-5 flex items-center justify-center gap-1.5 drop-shadow">
         <i class="fa-solid fa-volume-high text-xs"></i> Sentuh untuk membuka dengan musik
       </p>
     </div>
@@ -301,7 +284,7 @@
 
       <!-- CENTER MOTION NAMES (ZOOM IN CINEMATIC) -->
       <div class="relative z-[4] my-auto px-4" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="200">
-        <!-- Floating Floral Wreath Accent -->
+        <!-- Floating Floral Wreath Accent (Clean 100% Transparent) -->
         <div class="relative w-36 h-36 mx-auto mb-3 flex items-center justify-center">
           <img src="Assets/ornament-wreath.png?v=2" alt="Wreath" class="absolute inset-0 w-full h-full object-contain pulse-motion opacity-90">
           <span class="font-serif text-3xl font-bold tracking-widest text-white drop-shadow-md">D & D</span>
@@ -331,6 +314,7 @@
 
     <!-- ========================================== -->
     <!-- 3. QUOTE & COUNTDOWN SECTION -->
+    <!-- (TANPA WALIMATUL 'URSY SESUAI REQUEST USER) -->
     <!-- ========================================== -->
     <section id="home" class="relative pt-12 pb-8 px-6 text-center">
       
@@ -390,6 +374,7 @@
 
     <!-- ========================================== -->
     <!-- 4. PROFILE MEMPELAI (PRIA DAHULU) -->
+    <!-- (TANPA FOTO MEMPELAI SESUAI REQUEST USER) -->
     <!-- ========================================== -->
     <section id="mempelai" class="py-12 px-6">
       <div class="text-center mb-10" data-aos="fade-up">
@@ -401,26 +386,25 @@
         </p>
       </div>
 
-      <!-- MEMPELAI PRIA (DIMAS) -->
-      <div class="glass-card rounded-3xl p-6 text-center relative overflow-hidden mb-8 shadow-xl" data-aos="fade-up" data-aos-duration="1000">
+      <!-- MEMPELAI PRIA (DIMAS) - TANPA FOTO SESUAI REQUEST -->
+      <div class="glass-card rounded-3xl p-7 text-center relative overflow-hidden mb-8 shadow-xl" data-aos="fade-up" data-aos-duration="1000">
         <img src="Assets/ornament-corner.png?v=2" alt="Corner" class="absolute -top-8 -right-8 w-28 opacity-40 pointer-events-none sway-right">
         
-        <!-- Avatar Frame -->
-        <div class="relative w-36 h-36 mx-auto mb-4 rounded-full p-1 bg-gradient-to-tr from-ash-400 via-white to-ash-600 shadow-xl">
-          <img src="Assets/groom-dimas.jpg" alt="Prasetya Dimas Arvianto" class="w-full h-full object-cover rounded-full">
+        <div class="w-12 h-12 mx-auto rounded-full bg-ash-100 text-ash-700 flex items-center justify-center text-xl mb-3 shadow-inner">
+          <i class="fa-solid fa-user-tie"></i>
         </div>
 
-        <h3 class="font-serif text-2xl font-bold text-ash-900 tracking-wide">Prasetya Dimas Arvianto</h3>
-        <p class="font-script text-2xl text-ash-600 my-1">Dimas</p>
+        <h3 class="font-serif text-2xl sm:text-3xl font-bold text-ash-900 tracking-wide">Prasetya Dimas Arvianto</h3>
+        <p class="font-script text-3xl text-ash-600 my-1.5">Dimas</p>
 
-        <div class="my-3 text-xs text-ash-700 leading-relaxed">
-          <p class="font-semibold text-ash-800">Putra dari Keluarga :</p>
-          <p class="mt-1">Bapak Bambang Novianto, S.E, S.Sos, MM</p>
-          <p>& Ibu Arviana Wulandari, S.H, S.E, MM <span class="italic text-ash-500">(Almh)</span></p>
+        <div class="my-4 text-xs text-ash-700 leading-relaxed">
+          <p class="font-bold text-ash-800 uppercase tracking-wider text-[11px] mb-1">Putra dari Keluarga :</p>
+          <p class="text-sm font-medium text-ash-900">Bapak Bambang Novianto, S.E, S.Sos, MM</p>
+          <p class="text-sm font-medium text-ash-900">& Ibu Arviana Wulandari, S.H, S.E, MM <span class="italic text-ash-500 text-xs">(Almh)</span></p>
         </div>
 
-        <a href="https://www.instagram.com/dimasarvianto?stkn=Zm1peXRvOGF4cGR4" target="_blank" class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-ash-100 hover:bg-ash-200 text-ash-700 text-xs font-medium transition-colors">
-          <i class="fa-brands fa-instagram text-sm text-ash-600"></i>
+        <a href="https://www.instagram.com/dimasarvianto?stkn=Zm1peXRvOGF4cGR4" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-ash-100 hover:bg-ash-200 text-ash-700 text-xs font-semibold transition-colors shadow-sm">
+          <i class="fa-brands fa-instagram text-base text-ash-600"></i>
           <span>@dimasarvianto</span>
         </a>
       </div>
@@ -432,33 +416,32 @@
         </span>
       </div>
 
-      <!-- MEMPELAI WANITA (DIVA) -->
-      <div class="glass-card rounded-3xl p-6 text-center relative overflow-hidden mt-4 shadow-xl" data-aos="fade-up" data-aos-duration="1000">
+      <!-- MEMPELAI WANITA (DIVA) - TANPA FOTO SESUAI REQUEST -->
+      <div class="glass-card rounded-3xl p-7 text-center relative overflow-hidden mt-4 shadow-xl" data-aos="fade-up" data-aos-duration="1000">
         <img src="Assets/ornament-corner.png?v=2" alt="Corner" class="absolute -top-8 -left-8 w-28 opacity-40 pointer-events-none sway-left">
         
-        <!-- Avatar Frame -->
-        <div class="relative w-36 h-36 mx-auto mb-4 rounded-full p-1 bg-gradient-to-tr from-ash-400 via-white to-ash-600 shadow-xl">
-          <img src="Assets/bride-diva.jpg" alt="Diva Danica" class="w-full h-full object-cover rounded-full">
+        <div class="w-12 h-12 mx-auto rounded-full bg-ash-100 text-ash-700 flex items-center justify-center text-xl mb-3 shadow-inner">
+          <i class="fa-solid fa-person-dress"></i>
         </div>
 
-        <h3 class="font-serif text-2xl font-bold text-ash-900 tracking-wide">Diva Danica</h3>
-        <p class="font-script text-2xl text-ash-600 my-1">Diva</p>
+        <h3 class="font-serif text-2xl sm:text-3xl font-bold text-ash-900 tracking-wide">Diva Danica</h3>
+        <p class="font-script text-3xl text-ash-600 my-1.5">Diva</p>
 
-        <div class="my-3 text-xs text-ash-700 leading-relaxed">
-          <p class="font-semibold text-ash-800">Putri dari Keluarga :</p>
-          <p class="mt-1">Bapak Wahyu Rohadi</p>
-          <p>& Ibu Fatmawati</p>
+        <div class="my-4 text-xs text-ash-700 leading-relaxed">
+          <p class="font-bold text-ash-800 uppercase tracking-wider text-[11px] mb-1">Putri dari Keluarga :</p>
+          <p class="text-sm font-medium text-ash-900">Bapak Wahyu Rohadi</p>
+          <p class="text-sm font-medium text-ash-900">& Ibu Fatmawati</p>
         </div>
 
-        <a href="https://www.instagram.com/divadanica27?stkn=MWV2cThhM2JvN2cxbw==" target="_blank" class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-ash-100 hover:bg-ash-200 text-ash-700 text-xs font-medium transition-colors">
-          <i class="fa-brands fa-instagram text-sm text-ash-600"></i>
+        <a href="https://www.instagram.com/divadanica27?stkn=MWV2cThhM2JvN2cxbw==" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-ash-100 hover:bg-ash-200 text-ash-700 text-xs font-semibold transition-colors shadow-sm">
+          <i class="fa-brands fa-instagram text-base text-ash-600"></i>
           <span>@divadanica27</span>
         </a>
       </div>
     </section>
 
     <!-- ========================================== -->
-    <!-- 5. DETAIL ACARA (AKAD & RESEPSI) -->
+    <!-- 5. DETAIL ACARA (AKAD & RESEPSI + KETERANGAN PARKIR BRI) -->
     <!-- ========================================== -->
     <section id="acara" class="py-12 px-6">
       <div class="text-center mb-8" data-aos="fade-up">
@@ -489,11 +472,11 @@
 
         <a href="https://maps.google.com/?q=Kp.2+Rt.08/Rw.02+No.90+Jakasampurna+Bekasi+Barat+Kota+Bekasi" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-ash-600 hover:bg-ash-700 text-white text-xs font-semibold shadow-md transition-all">
           <i class="fa-solid fa-map-location-dot"></i>
-          <span>Buka Google Maps</span>
+          <span>Buka Google Maps Acara</span>
         </a>
       </div>
 
-      <!-- RESEPSI PERNIKAHAN CARD -->
+      <!-- RESEPSI PERNIKAHAN CARD + KETERANGAN PARKIR MOBIL -->
       <div class="glass-card rounded-3xl p-6 mb-6 text-center relative overflow-hidden border-t-4 border-ash-500 shadow-xl" data-aos="fade-up" data-aos-duration="1000">
         <div class="w-12 h-12 mx-auto rounded-full bg-ash-100 text-ash-700 flex items-center justify-center text-xl mb-3 shadow-inner">
           <i class="fa-solid fa-champagne-glasses"></i>
@@ -508,14 +491,33 @@
           </p>
         </div>
 
-        <div class="text-xs text-ash-700 leading-relaxed mb-5">
+        <div class="text-xs text-ash-700 leading-relaxed mb-4">
           <p class="font-bold text-ash-900"><i class="fa-solid fa-location-dot text-ash-600 mr-1"></i> Kediaman Mempelai Wanita</p>
           <p class="mt-1 text-ash-600">Kp.2 Rt.08/Rw.02 No.90 Jakasampurna, Bekasi Barat, Kota Bekasi</p>
         </div>
 
+        <!-- INFO PARKIR MOBIL SESUAI REQUEST USER -->
+        <div class="p-3.5 mb-5 rounded-2xl bg-amber-50/80 border border-amber-200/90 text-left text-xs text-amber-900 shadow-sm">
+          <div class="flex items-start gap-2.5">
+            <div class="w-7 h-7 rounded-lg bg-amber-500 text-white flex items-center justify-center shrink-0 mt-0.5">
+              <i class="fa-solid fa-square-parking text-sm"></i>
+            </div>
+            <div>
+              <p class="font-bold text-amber-900">Informasi Parkir Mobil:</p>
+              <p class="text-[11px] text-amber-800 leading-relaxed mt-0.5">
+                (Parkir Mobil masuk dari Perumahan BRI)
+              </p>
+              <a href="https://maps.app.goo.gl/M1oNTRY91ELhDkXK8?g_st=ic" target="_blank" class="inline-flex items-center gap-1.5 mt-2 px-3 py-1.5 rounded-full bg-amber-600 hover:bg-amber-700 text-white text-[11px] font-bold shadow transition-all">
+                <i class="fa-solid fa-location-arrow text-[10px]"></i>
+                <span>Petunjuk Maps Parkir Mobil</span>
+              </a>
+            </div>
+          </div>
+        </div>
+
         <a href="https://maps.google.com/?q=Kp.2+Rt.08/Rw.02+No.90+Jakasampurna+Bekasi+Barat+Kota+Bekasi" target="_blank" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-ash-600 hover:bg-ash-700 text-white text-xs font-semibold shadow-md transition-all">
           <i class="fa-solid fa-map-location-dot"></i>
-          <span>Buka Google Maps</span>
+          <span>Buka Google Maps Lokasi Acara</span>
         </a>
       </div>
 
@@ -535,6 +537,7 @@
 
     <!-- ========================================== -->
     <!-- 6. LOVE STORY (PERJALANAN CINTA) -->
+    <!-- (TANPA FOTO SESUAI REQUEST USER) -->
     <!-- ========================================== -->
     <section id="cerita" class="py-12 px-6">
       <div class="text-center mb-8" data-aos="fade-up">
@@ -543,51 +546,42 @@
         <p class="text-xs text-ash-600 mt-2">Setiap detik perjalanan yang mempertemukan kami kembali</p>
       </div>
 
-      <div class="relative border-l-2 border-ash-300 ml-4 space-y-8">
+      <div class="relative border-l-2 border-ash-300 ml-4 space-y-7">
         
-        <!-- Babak 1: Awal Bertemu -->
+        <!-- Babak 1: Awal Bertemu (Tanpa Foto) -->
         <div class="relative pl-6" data-aos="fade-up" data-aos-duration="900">
           <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-ash-600 border-2 border-white shadow"></div>
           <div class="glass-card rounded-2xl p-5 shadow-md">
             <span class="text-[11px] font-bold uppercase tracking-wider text-ash-500">Masa SMP</span>
-            <h4 class="font-serif text-lg font-bold text-ash-900 mt-0.5 mb-2">Awal Bertemu</h4>
-            <div class="rounded-xl overflow-hidden mb-3 h-36">
-              <img src="Assets/couple-casual-1.jpg" alt="Awal Bertemu" class="w-full h-full object-cover">
-            </div>
+            <h4 class="font-serif text-xl font-bold text-ash-900 mt-0.5 mb-2.5">Awal Bertemu</h4>
             <p class="text-xs text-ash-700 leading-relaxed">
               Awal pertemuan kami dimulai saat masih duduk di bangku Sekolah Menengah Pertama. Kala itu, kami sempat menjalin kisah selama lebih dari satu tahun. Namun, perjalanan membawa kami pada jalan masing-masing hingga kisah tersebut harus terhenti. Meski demikian, kenangan tentang satu sama lain tetap menjadi bagian dari perjalanan yang pernah kami lalui.
             </p>
           </div>
         </div>
 
-        <!-- Babak 2: Pertemuan Kembali -->
+        <!-- Babak 2: Pertemuan Kembali (Tanpa Foto) -->
         <div class="relative pl-6" data-aos="fade-up" data-aos-duration="900">
           <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-ash-600 border-2 border-white shadow"></div>
           <div class="glass-card rounded-2xl p-5 shadow-md">
             <span class="text-[11px] font-bold uppercase tracking-wider text-ash-500">Takdir Mempertemukan</span>
-            <h4 class="font-serif text-lg font-bold text-ash-900 mt-0.5 mb-2">Pertemuan Kembali</h4>
-            <div class="rounded-xl overflow-hidden mb-3 h-36">
-              <img src="Assets/couple-park.jpg" alt="Pertemuan Kembali" class="w-full h-full object-cover">
-            </div>
+            <h4 class="font-serif text-xl font-bold text-ash-900 mt-0.5 mb-2.5">Pertemuan Kembali</h4>
             <p class="text-xs text-ash-700 leading-relaxed">
               Setelah sekian lama tak saling bertemu, takdir kembali mempertemukan kami dalam sebuah perlombaan Ekstrakurikuler PMR, meskipun kami berasal dari sekolah yang berbeda. Sejak saat itu, kami beberapa kali kembali dipertemukan dalam berbagai momen yang tak pernah direncanakan. Hingga akhirnya, saat ibunda Dimas berpulang, Diva hadir menjadi orang pertama yang datang untuk menyampaikan belasungkawa. Kehadiran sederhana yang penuh ketulusan itu menjadi awal dari kisah kami yang kembali terjalin. Dari sana, kami kembali berjalan bersama, saling menguatkan, hingga akhirnya menyadari bahwa mungkin pertemuan kami bukanlah sebuah kebetulan.
             </p>
           </div>
         </div>
 
-        <!-- Babak 3: Kami Menikah -->
+        <!-- Babak 3: Kami Menikah (Tanpa Foto) -->
         <div class="relative pl-6" data-aos="fade-up" data-aos-duration="900">
           <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-ash-600 border-2 border-white shadow"></div>
           <div class="glass-card rounded-2xl p-5 shadow-md">
             <span class="text-[11px] font-bold uppercase tracking-wider text-ash-500">Ikatan Suci</span>
-            <h4 class="font-serif text-lg font-bold text-ash-900 mt-0.5 mb-2">Kami Menikah</h4>
-            <div class="rounded-xl overflow-hidden mb-3 h-36">
-              <img src="Assets/couple-hands.jpg" alt="Kami Menikah" class="w-full h-full object-cover">
-            </div>
+            <h4 class="font-serif text-xl font-bold text-ash-900 mt-0.5 mb-2.5">Kami Menikah</h4>
             <p class="text-xs text-ash-700 leading-relaxed mb-3">
               Dari setiap cara semesta mempertemukan kami, kami belajar bahwa tidak ada pertemuan yang benar-benar terjadi secara kebetulan.
             </p>
-            <div class="p-3 rounded-xl bg-ash-100/70 border-l-4 border-ash-600 italic text-xs text-ash-800 font-serif mb-3">
+            <div class="p-3.5 rounded-xl bg-ash-100/80 border-l-4 border-ash-600 italic text-xs text-ash-800 font-serif mb-3 leading-relaxed">
               “Jika semesta masih terus mempertemukan dua insan, mungkin memang kisah mereka belum benar-benar usai.”
             </div>
             <p class="text-xs text-ash-700 leading-relaxed">
@@ -601,6 +595,7 @@
 
     <!-- ========================================== -->
     <!-- 7. GALERI FOTO (MOMENTS) -->
+    <!-- (FOTO PEGANGAN TANGAN DIHAPUS SESUAI REQUEST KARENA SUDAH DI COVER) -->
     <!-- ========================================== -->
     <section id="galeri" class="py-12 px-6">
       <div class="text-center mb-8" data-aos="fade-up">
@@ -609,34 +604,34 @@
         <p class="text-xs text-ash-600 mt-2">Potret kebersamaan kami dalam bingkai cinta</p>
       </div>
 
-      <!-- Gallery Grid -->
+      <!-- Gallery Grid: 5 Foto Lainnya -->
       <div class="grid grid-cols-2 gap-3">
-        <!-- Photo 1: Big landscape -->
+        <!-- Photo 1: Big landscape (Lake) -->
         <div class="col-span-2 rounded-2xl overflow-hidden shadow-lg aspect-video cursor-pointer group" onclick="openLightbox('Assets/couple-lake.jpg')" data-aos="fade-up">
           <img src="Assets/couple-lake.jpg" alt="Lake Prewedding" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
         </div>
 
-        <!-- Photo 2 -->
-        <div class="rounded-2xl overflow-hidden shadow-lg aspect-[3/4] cursor-pointer group" onclick="openLightbox('Assets/couple-casual-2.jpg')" data-aos="fade-up">
-          <img src="Assets/couple-casual-2.jpg" alt="Casual Stairs" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+        <!-- Photo 2: Casual stairs 1 -->
+        <div class="rounded-2xl overflow-hidden shadow-lg aspect-[3/4] cursor-pointer group" onclick="openLightbox('Assets/couple-casual-1.jpg')" data-aos="fade-up">
+          <img src="Assets/couple-casual-1.jpg" alt="Casual Stairs 1" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
         </div>
 
-        <!-- Photo 3 -->
+        <!-- Photo 3: Casual stairs 2 -->
+        <div class="rounded-2xl overflow-hidden shadow-lg aspect-[3/4] cursor-pointer group" onclick="openLightbox('Assets/couple-casual-2.jpg')" data-aos="fade-up">
+          <img src="Assets/couple-casual-2.jpg" alt="Casual Stairs 2" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+        </div>
+
+        <!-- Photo 4: Park grass smile -->
+        <div class="rounded-2xl overflow-hidden shadow-lg aspect-[3/4] cursor-pointer group" onclick="openLightbox('Assets/couple-park.jpg')" data-aos="fade-up">
+          <img src="Assets/couple-park.jpg" alt="Park Smile" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+        </div>
+
+        <!-- Photo 5: Stand tree -->
         <div class="rounded-2xl overflow-hidden shadow-lg aspect-[3/4] cursor-pointer group" onclick="openLightbox('Assets/couple-stand.jpg')" data-aos="fade-up">
           <img src="Assets/couple-stand.jpg" alt="Couple Stand" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
         </div>
 
-        <!-- Photo 4 -->
-        <div class="rounded-2xl overflow-hidden shadow-lg aspect-square cursor-pointer group" onclick="openLightbox('Assets/couple-hands.jpg')" data-aos="fade-up">
-          <img src="Assets/couple-hands.jpg" alt="Holding Hands" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-        </div>
-
-        <!-- Photo 5 -->
-        <div class="rounded-2xl overflow-hidden shadow-lg aspect-square cursor-pointer group" onclick="openLightbox('Assets/couple-park.jpg')" data-aos="fade-up">
-          <img src="Assets/couple-park.jpg" alt="Park Smile" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
-        </div>
-
-        <!-- Photo 6: Full width -->
+        <!-- Photo 6: Full width Hero Smile -->
         <div class="col-span-2 rounded-2xl overflow-hidden shadow-lg aspect-[4/5] cursor-pointer group" onclick="openLightbox('Assets/couple-hero.jpg')" data-aos="fade-up">
           <img src="Assets/couple-hero.jpg" alt="Hero Smile" class="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500">
         </div>
