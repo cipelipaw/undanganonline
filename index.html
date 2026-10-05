@@ -116,17 +116,29 @@
       z-index: 1;
     }
 
-    /* Soft Dreamy Pastel Overlay on Living Video */
+    /* Soft Dreamy Pastel Overlay on Garden Background */
     .hero-color-overlay {
       position: absolute;
       inset: 0;
       background: linear-gradient(180deg, 
-        rgba(15, 23, 42, 0.45) 0%, 
-        rgba(200, 234, 255, 0.18) 30%, 
-        rgba(255, 197, 211, 0.28) 65%, 
+        rgba(15, 23, 42, 0.32) 0%, 
+        rgba(200, 234, 255, 0.15) 30%, 
+        rgba(255, 197, 211, 0.22) 65%, 
         rgba(255, 246, 248, 0.96) 100%
       );
       z-index: 2;
+    }
+
+    /* Cinematic Ken Burns Motion for Garden Background */
+    @keyframes kenBurnsDreamy {
+      0% { transform: scale(1.0) translateY(0); }
+      50% { transform: scale(1.07) translateY(-8px); }
+      100% { transform: scale(1.0) translateY(0); }
+    }
+    .ken-burns-dreamy {
+      animation: kenBurnsDreamy 24s ease-in-out infinite alternate;
+      transform-origin: center center;
+      will-change: transform;
     }
 
     /* Motion Floral Sway Animations */
@@ -384,10 +396,10 @@
     <!-- ========================================== -->
     <section id="motionHero" class="relative w-full h-[100vh] min-h-[640px] max-h-[880px] overflow-hidden flex items-center justify-center text-center px-4 py-8">
       
-      <!-- LIVING MOTION VIDEO BACKGROUND -->
-      <video id="heroMotionVideo" class="motion-video-layer" autoplay muted loop playsinline preload="auto" poster="Assets/gazebo-garden.jpg">
-        <source src="Assets/motion-bg.mp4" type="video/mp4">
-      </video>
+      <!-- ROMANTIC FLORAL LAKE GARDEN LIVING BACKGROUND (NO CASTLE, ELEGANT BOTANICAL LAKE GARDEN) -->
+      <div class="absolute inset-0 overflow-hidden z-[1]">
+        <img src="Assets/wedding-garden-bg.jpg" alt="Romantic Wedding Floral Garden" class="w-full h-full object-cover ken-burns-dreamy">
+      </div>
 
       <!-- Soft Dreamy Pastel Overlay (Pink #FFC5D3 & Biru Pastel #C8EAFF) -->
       <div class="hero-color-overlay"></div>
