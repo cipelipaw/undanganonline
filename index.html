@@ -225,6 +225,28 @@
     .scroll-cue {
       animation: bounce-scroll 2.5s infinite;
     }
+
+    /* Hero Content Staggered Reveal (Muncul setelah frame putih video terbuka sempurna) */
+    .hero-reveal-item {
+      opacity: 0;
+      transform: translateY(18px) scale(0.92);
+      transition: opacity 1.3s cubic-bezier(0.16, 1, 0.3, 1), transform 1.3s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .hero-reveal-item.revealed {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    /* Corner Floral Reveal */
+    .hero-corner-item {
+      opacity: 0;
+      transition: opacity 1.5s ease;
+      will-change: opacity;
+    }
+    .hero-corner-item.revealed {
+      opacity: 0.95;
+    }
   </style>
 </head>
 <body class="selection:bg-pink-400 selection:text-white">
@@ -301,41 +323,45 @@
       <!-- Soft Dreamy Pastel Overlay (Pink #FFC5D3 & Biru Pastel #C8EAFF) -->
       <div class="hero-color-overlay"></div>
 
-      <!-- Swaying Corner Floral Ornaments (Pink, Putih, Biru) -->
-      <img src="Assets/ornament-corner-pink.png" alt="Decor" class="absolute -top-10 -left-10 w-44 sm:w-52 pointer-events-none z-[3] sway-left opacity-95">
-      <img src="Assets/ornament-corner-pink.png" alt="Decor" class="absolute -top-10 -right-10 w-44 sm:w-52 pointer-events-none z-[3] sway-right opacity-95">
-      <img src="Assets/ornament-corner-pink.png" alt="Decor" class="absolute -bottom-10 -left-10 w-40 sm:w-48 pointer-events-none z-[3] sway-bottom-left opacity-85">
-      <img src="Assets/ornament-corner-pink.png" alt="Decor" class="absolute -bottom-10 -right-10 w-40 sm:w-48 pointer-events-none z-[3] sway-bottom-right opacity-85">
+      <!-- Swaying Corner Floral Ornaments (Pink, Putih, Biru - Muncul bertahap) -->
+      <img src="Assets/ornament-corner-pink.png" alt="Decor" class="hero-corner-item absolute -top-10 -left-10 w-44 sm:w-52 pointer-events-none z-[3] sway-left">
+      <img src="Assets/ornament-corner-pink.png" alt="Decor" class="hero-corner-item absolute -top-10 -right-10 w-44 sm:w-52 pointer-events-none z-[3] sway-right">
+      <img src="Assets/ornament-corner-pink.png" alt="Decor" class="hero-corner-item absolute -bottom-10 -left-10 w-40 sm:w-48 pointer-events-none z-[3] sway-bottom-left">
+      <img src="Assets/ornament-corner-pink.png" alt="Decor" class="hero-corner-item absolute -bottom-10 -right-10 w-40 sm:w-48 pointer-events-none z-[3] sway-bottom-right">
 
-      <!-- TOP MOTION TAG -->
-      <div class="relative z-[4] pt-8" data-aos="fade-down" data-aos-duration="1200">
+      <!-- TOP MOTION TAG (Muncul setelah frame putih video mekar) -->
+      <div class="hero-reveal-item relative z-[4] pt-8">
         <p class="text-xs uppercase tracking-[0.4em] text-white font-semibold drop-shadow-md">The Wedding Of</p>
         <div class="w-16 h-0.5 bg-white/70 mx-auto mt-2"></div>
       </div>
 
-      <!-- CENTER MOTION NAMES (ZOOM IN CINEMATIC DI DEPAN GAZEBO) -->
-      <div class="relative z-[4] my-auto px-4" data-aos="zoom-in" data-aos-duration="1500" data-aos-delay="200">
-        <!-- Floating Floral Wreath Accent (Pink & Blue) -->
-        <div class="relative w-36 h-36 mx-auto mb-2 flex items-center justify-center">
+      <!-- CENTER MOTION NAMES & BUNGA WREATH D&D -->
+      <div class="relative z-[4] my-auto px-4">
+        <!-- Floating Floral Wreath Accent (Pink & Blue) dengan tulisan D & D -->
+        <div class="hero-reveal-item relative w-36 h-36 mx-auto mb-2 flex items-center justify-center">
           <img src="Assets/ornament-wreath-pink.png" alt="Wreath" class="absolute inset-0 w-full h-full object-contain pulse-motion drop-shadow-lg">
           <span class="font-serif text-3xl font-bold tracking-widest text-white drop-shadow-md">D & D</span>
         </div>
 
-        <h1 class="font-script text-6xl sm:text-7xl text-white font-normal drop-shadow-lg tracking-wide mb-1 gentle-float">
-          Dimas & Diva
-        </h1>
+        <div class="hero-reveal-item">
+          <h1 class="font-script text-6xl sm:text-7xl text-white font-normal drop-shadow-lg tracking-wide mb-1 gentle-float">
+            Dimas & Diva
+          </h1>
+        </div>
         
-        <p class="font-serif text-lg tracking-widest text-white italic mt-2 drop-shadow-md">
-          Minggu, 08 November 2026
-        </p>
+        <div class="hero-reveal-item">
+          <p class="font-serif text-lg tracking-widest text-white italic mt-2 drop-shadow-md">
+            Minggu, 08 November 2026
+          </p>
 
-        <p class="text-xs uppercase tracking-[0.25em] text-white/90 mt-1 font-medium drop-shadow">
-          Jakasampurna, Bekasi Barat
-        </p>
+          <p class="text-xs uppercase tracking-[0.25em] text-white/90 mt-1 font-medium drop-shadow">
+            Jakasampurna, Bekasi Barat
+          </p>
+        </div>
       </div>
 
       <!-- BOTTOM SCROLL INDICATOR -->
-      <div class="relative z-[4] pb-6 flex flex-col items-center gap-2" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+      <div class="hero-reveal-item relative z-[4] pb-6 flex flex-col items-center gap-2">
         <p class="text-[11px] uppercase tracking-widest text-white font-semibold drop-shadow">Gulir ke bawah</p>
         <div class="w-8 h-12 rounded-full border-2 border-white/80 flex items-start justify-center p-1.5 scroll-cue shadow-lg">
           <div class="w-1.5 h-3 bg-white rounded-full"></div>
@@ -893,17 +919,46 @@
       // Attempt play audio
       playAudio();
 
-      // Trigger motion video play immediately
+      // Reset motion video ke detik 0 dan putar segera
       const video = document.getElementById('heroMotionVideo');
       if (video) {
+        try {
+          video.currentTime = 0;
+        } catch(e) {}
         video.play().catch(e => console.log('Video autoplay:', e));
       }
+
+      // TUNGGU FRAME PUTIH ("putih-putihnya" di video) MEKAR / TERBUKA TERLEBIH DAHULU (2.1 detik)
+      // Setelah frame putih terbentuk sempurna, baru munculkan The Wedding of, bunga D&D, nama, dll
+      setTimeout(() => {
+        revealHeroElements();
+      }, 2100);
 
       // Refresh AOS after cover disappears
       setTimeout(() => {
         AOS.refresh();
-      }, 500);
+      }, 600);
     }
+
+    function revealHeroElements() {
+      // 1. Munculkan ornamen sudut secara lembut
+      document.querySelectorAll('.hero-corner-item').forEach(el => {
+        el.classList.add('revealed');
+      });
+
+      // 2. Munculkan teks & wreath D&D berurutan (staggered)
+      const items = document.querySelectorAll('.hero-reveal-item');
+      items.forEach((item, index) => {
+        setTimeout(() => {
+          item.classList.add('revealed');
+        }, index * 240);
+      });
+    }
+
+    // Safeguard jika halaman dibuka tanpa cover atau setelah 4.5 detik
+    setTimeout(() => {
+      revealHeroElements();
+    }, 4500);
 
     function playAudio() {
       audio.play().then(() => {
