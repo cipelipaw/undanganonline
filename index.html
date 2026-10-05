@@ -226,22 +226,91 @@
       animation: bounce-scroll 2.5s infinite;
     }
 
-    /* Hero Content Staggered Reveal (Muncul setelah frame putih video terbuka sempurna) */
-    .hero-reveal-item {
+    /* Translucent Ornamental Wedding Invitation Paper Frame */
+    .ornamental-paper-frame {
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1.5px solid rgba(255, 255, 255, 0.95);
+      border-radius: 2.75rem;
+      box-shadow: 
+        0 20px 50px rgba(89, 98, 115, 0.12),
+        0 0 35px rgba(255, 197, 211, 0.38),
+        0 0 25px rgba(200, 234, 255, 0.42),
+        inset 0 0 0 1px rgba(200, 234, 255, 0.45),
+        inset 0 0 0 4px rgba(255, 255, 255, 0.8);
       opacity: 0;
-      transform: translateY(18px) scale(0.92);
-      transition: opacity 1.3s cubic-bezier(0.16, 1, 0.3, 1), transform 1.3s cubic-bezier(0.16, 1, 0.3, 1);
+      transform: scale(0.72);
+      transition: opacity 1.8s ease-out, transform 2.0s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 2.2s ease-in-out;
+      will-change: opacity, transform, box-shadow;
+    }
+    .ornamental-paper-frame.revealed {
+      opacity: 1;
+      transform: scale(1);
+      box-shadow: 
+        0 25px 60px rgba(89, 98, 115, 0.15),
+        0 0 45px rgba(255, 197, 211, 0.48),
+        0 0 35px rgba(200, 234, 255, 0.48),
+        inset 0 0 0 1px rgba(200, 234, 255, 0.55),
+        inset 0 0 0 4px rgba(255, 255, 255, 0.85);
+    }
+
+    /* Sequential Typography Reveal Elements */
+    .seq-reveal-1 {
+      opacity: 0;
+      transition: opacity 1.4s ease-out;
+      will-change: opacity;
+    }
+    .seq-reveal-1.revealed {
+      opacity: 1;
+    }
+
+    .seq-reveal-2 {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 1.4s ease-out, transform 1.5s cubic-bezier(0.16, 1, 0.3, 1);
       will-change: opacity, transform;
     }
-    .hero-reveal-item.revealed {
+    .seq-reveal-2.revealed {
       opacity: 1;
-      transform: translateY(0) scale(1);
+      transform: translateY(0);
+    }
+
+    .seq-reveal-3 {
+      opacity: 0;
+      transform: scale(0.92);
+      transition: opacity 1.6s ease-out, transform 1.8s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .seq-reveal-3.revealed {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    .seq-reveal-4 {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 1.4s ease-out, transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .seq-reveal-4.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .seq-reveal-5 {
+      opacity: 0;
+      transition: opacity 1.5s ease-out;
+      will-change: opacity;
+    }
+    .seq-reveal-5.revealed {
+      opacity: 1;
     }
 
     /* Corner Floral Reveal */
     .hero-corner-item {
       opacity: 0;
-      transition: opacity 1.5s ease;
+      transition: opacity 1.6s ease;
       will-change: opacity;
     }
     .hero-corner-item.revealed {
@@ -313,7 +382,7 @@
     <!-- 2. CINEMATIC LIVING MOTION HERO (SEPERTI MOTION-06) -->
     <!-- (MOTION PENUH DENGAN BACKGROUND LIVING VIDEO, GAZEBO, BIRU PASTEL & PINK) -->
     <!-- ========================================== -->
-    <section id="motionHero" class="relative w-full h-[100vh] min-h-[640px] max-h-[860px] overflow-hidden flex flex-col items-center justify-between text-center px-6 py-12">
+    <section id="motionHero" class="relative w-full h-[100vh] min-h-[640px] max-h-[880px] overflow-hidden flex items-center justify-center text-center px-4 py-8">
       
       <!-- LIVING MOTION VIDEO BACKGROUND -->
       <video id="heroMotionVideo" class="motion-video-layer" autoplay muted loop playsinline preload="auto" poster="Assets/gazebo-garden.jpg">
@@ -323,49 +392,56 @@
       <!-- Soft Dreamy Pastel Overlay (Pink #FFC5D3 & Biru Pastel #C8EAFF) -->
       <div class="hero-color-overlay"></div>
 
-      <!-- Swaying Corner Floral Ornaments (Pink, Putih, Biru - Muncul bertahap) -->
+      <!-- Swaying Corner Floral Ornaments (Pink, Putih, Biru - Subtle Accents) -->
       <img src="Assets/ornament-corner-pink.png" alt="Decor" class="hero-corner-item absolute -top-10 -left-10 w-44 sm:w-52 pointer-events-none z-[3] sway-left">
       <img src="Assets/ornament-corner-pink.png" alt="Decor" class="hero-corner-item absolute -top-10 -right-10 w-44 sm:w-52 pointer-events-none z-[3] sway-right">
       <img src="Assets/ornament-corner-pink.png" alt="Decor" class="hero-corner-item absolute -bottom-10 -left-10 w-40 sm:w-48 pointer-events-none z-[3] sway-bottom-left">
       <img src="Assets/ornament-corner-pink.png" alt="Decor" class="hero-corner-item absolute -bottom-10 -right-10 w-40 sm:w-48 pointer-events-none z-[3] sway-bottom-right">
 
-      <!-- TOP MOTION TAG (Muncul setelah frame putih video mekar) -->
-      <div class="hero-reveal-item relative z-[4] pt-8">
-        <p class="text-xs uppercase tracking-[0.4em] text-white font-semibold drop-shadow-md">The Wedding Of</p>
-        <div class="w-16 h-0.5 bg-white/70 mx-auto mt-2"></div>
-      </div>
-
-      <!-- CENTER MOTION NAMES & BUNGA WREATH D&D -->
-      <div class="relative z-[4] my-auto px-4">
-        <!-- Floating Floral Wreath Accent (Pink & Blue) dengan tulisan D & D -->
-        <div class="hero-reveal-item relative w-36 h-36 mx-auto mb-2 flex items-center justify-center">
-          <img src="Assets/ornament-wreath-pink.png" alt="Wreath" class="absolute inset-0 w-full h-full object-contain pulse-motion drop-shadow-lg">
-          <span class="font-serif text-3xl font-bold tracking-widest text-white drop-shadow-md">D & D</span>
-        </div>
-
-        <div class="hero-reveal-item">
-          <h1 class="font-script text-6xl sm:text-7xl text-white font-normal drop-shadow-lg tracking-wide mb-1 gentle-float">
-            Dimas & Diva
-          </h1>
-        </div>
+      <!-- LARGE WHITE TRANSLUCENT ORNAMENTAL WEDDING INVITATION FRAME -->
+      <div id="invitationFrame" class="ornamental-paper-frame relative z-[4] w-[90%] sm:w-[86%] max-w-[365px] min-h-[500px] max-h-[680px] py-8 px-6 flex flex-col items-center justify-between mx-auto my-auto text-center">
         
-        <div class="hero-reveal-item">
-          <p class="font-serif text-lg tracking-widest text-white italic mt-2 drop-shadow-md">
-            Minggu, 08 November 2026
-          </p>
-
-          <p class="text-xs uppercase tracking-[0.25em] text-white/90 mt-1 font-medium drop-shadow">
-            Jakasampurna, Bekasi Barat
-          </p>
+        <!-- TOP: THE WEDDING OF (Soft fade in) -->
+        <div class="seq-reveal-1 pt-1">
+          <p class="text-xs uppercase tracking-[0.38em] text-[#596273] font-semibold">The Wedding Of</p>
+          <div class="w-12 h-0.5 bg-gradient-to-r from-[#FFC5D3] via-[#C8EAFF] to-[#FFC5D3] mx-auto mt-2 rounded-full opacity-80"></div>
         </div>
-      </div>
 
-      <!-- BOTTOM SCROLL INDICATOR -->
-      <div class="hero-reveal-item relative z-[4] pb-6 flex flex-col items-center gap-2">
-        <p class="text-[11px] uppercase tracking-widest text-white font-semibold drop-shadow">Gulir ke bawah</p>
-        <div class="w-8 h-12 rounded-full border-2 border-white/80 flex items-start justify-center p-1.5 scroll-cue shadow-lg">
-          <div class="w-1.5 h-3 bg-white rounded-full"></div>
+        <!-- CENTER: WREATH WITH D&D, NAMES, AND DETAILS -->
+        <div class="my-auto py-2 w-full flex flex-col items-center">
+          
+          <!-- D & D in Floral Wreath (Gentle fade and slight upward movement) -->
+          <div class="seq-reveal-2 relative w-32 h-32 sm:w-36 sm:h-36 mx-auto mb-2 flex items-center justify-center">
+            <img src="Assets/ornament-wreath-pink.png" alt="Wreath" class="absolute inset-0 w-full h-full object-contain pulse-motion drop-shadow-sm">
+            <span class="font-serif text-2xl sm:text-3xl font-bold tracking-widest text-[#596273]">D & D</span>
+          </div>
+
+          <!-- Dimas & Diva (Elegant slow fade in with subtle scale-up effect) -->
+          <div class="seq-reveal-3">
+            <h1 class="font-script text-5xl sm:text-6xl text-[#596273] font-normal tracking-wide mb-1 gentle-float drop-shadow-sm">
+              Dimas & Diva
+            </h1>
+          </div>
+          
+          <!-- Date & Location (Appear last) -->
+          <div class="seq-reveal-4 mt-2">
+            <p class="font-serif text-base sm:text-lg tracking-wider text-[#596273] italic">
+              Minggu, 08 November 2026
+            </p>
+            <p class="text-[11px] uppercase tracking-[0.25em] text-[#7A8599] mt-1 font-semibold">
+              Jakasampurna, Bekasi Barat
+            </p>
+          </div>
         </div>
+
+        <!-- BOTTOM: GULIR KE BAWAH (Subtle Scroll Cue) -->
+        <div class="seq-reveal-5 pb-1 flex flex-col items-center gap-1.5">
+          <p class="text-[10px] uppercase tracking-widest text-[#7A8599] font-semibold">Gulir ke bawah</p>
+          <div class="w-6 h-10 rounded-full border-2 border-[#596273]/30 flex items-start justify-center p-1 scroll-cue">
+            <div class="w-1 h-2.5 bg-[#596273]/60 rounded-full"></div>
+          </div>
+        </div>
+
       </div>
     </section>
 
@@ -928,11 +1004,49 @@
         video.play().catch(e => console.log('Video autoplay:', e));
       }
 
-      // TUNGGU FRAME PUTIH ("putih-putihnya" di video) MEKAR / TERBUKA TERLEBIH DAHULU (2.1 detik)
-      // Setelah frame putih terbentuk sempurna, baru munculkan The Wedding of, bunga D&D, nama, dll
+      // ========================================================
+      // ELEGANT ROMANTIC SEQUENTIAL REVEAL:
+      // ========================================================
+      
+      // Step 1: Start with only the floral background.
+      // Slowly reveal the large white translucent ornamental frame in the center
+      // (Appears from the center and expands smoothly outward with soft glowing edge)
       setTimeout(() => {
-        revealHeroElements();
-      }, 2100);
+        const frame = document.getElementById('invitationFrame');
+        if (frame) frame.classList.add('revealed');
+        document.querySelectorAll('.hero-corner-item').forEach(el => el.classList.add('revealed'));
+      }, 500);
+
+      // Step 2: After the frame is fully formed, wait briefly, then reveal typography sequentially:
+      // "THE WEDDING OF" — soft fade in
+      setTimeout(() => {
+        const el = document.querySelector('.seq-reveal-1');
+        if (el) el.classList.add('revealed');
+      }, 2500);
+
+      // "D & D" — gentle fade and slight upward movement
+      setTimeout(() => {
+        const el = document.querySelector('.seq-reveal-2');
+        if (el) el.classList.add('revealed');
+      }, 3100);
+
+      // "Dimas & Diva" — elegant slow fade in with a subtle scale-up effect
+      setTimeout(() => {
+        const el = document.querySelector('.seq-reveal-3');
+        if (el) el.classList.add('revealed');
+      }, 3750);
+
+      // Date and location appear last
+      setTimeout(() => {
+        const el = document.querySelector('.seq-reveal-4');
+        if (el) el.classList.add('revealed');
+      }, 4400);
+
+      // Scroll cue appears smoothly
+      setTimeout(() => {
+        const el = document.querySelector('.seq-reveal-5');
+        if (el) el.classList.add('revealed');
+      }, 5000);
 
       // Refresh AOS after cover disappears
       setTimeout(() => {
@@ -940,25 +1054,18 @@
       }, 600);
     }
 
-    function revealHeroElements() {
-      // 1. Munculkan ornamen sudut secara lembut
-      document.querySelectorAll('.hero-corner-item').forEach(el => {
+    function forceRevealAllHero() {
+      const frame = document.getElementById('invitationFrame');
+      if (frame) frame.classList.add('revealed');
+      document.querySelectorAll('.hero-corner-item, .seq-reveal-1, .seq-reveal-2, .seq-reveal-3, .seq-reveal-4, .seq-reveal-5').forEach(el => {
         el.classList.add('revealed');
-      });
-
-      // 2. Munculkan teks & wreath D&D berurutan (staggered)
-      const items = document.querySelectorAll('.hero-reveal-item');
-      items.forEach((item, index) => {
-        setTimeout(() => {
-          item.classList.add('revealed');
-        }, index * 240);
       });
     }
 
-    // Safeguard jika halaman dibuka tanpa cover atau setelah 4.5 detik
+    // Safeguard jika halaman dibuka tanpa cover atau setelah 6 detik
     setTimeout(() => {
-      revealHeroElements();
-    }, 4500);
+      forceRevealAllHero();
+    }, 6000);
 
     function playAudio() {
       audio.play().then(() => {
@@ -1181,7 +1288,7 @@
     });
 
     const particles = [];
-    const particleCount = 42; // Rich continuous motion
+    const particleCount = 28; // Subtle, elegant, unhurried romantic particles
 
     class Particle {
       constructor() {
@@ -1190,13 +1297,13 @@
       reset(initial = false) {
         this.x = Math.random() * width;
         this.y = initial ? Math.random() * height : -20;
-        this.isSparkle = Math.random() < 0.3; // 30% fairy bokeh sparkles, 70% fluttering petals
-        this.size = this.isSparkle ? Math.random() * 3.5 + 2 : Math.random() * 9 + 6;
-        this.speedY = Math.random() * 1.3 + 0.6;
-        this.speedX = (Math.random() - 0.5) * 1.1;
+        this.isSparkle = Math.random() < 0.35; // Soft fairy bokeh sparkle or gentle falling petal
+        this.size = this.isSparkle ? Math.random() * 3 + 1.5 : Math.random() * 8 + 5;
+        this.speedY = Math.random() * 0.7 + 0.35; // Slow, graceful floating movement
+        this.speedX = (Math.random() - 0.5) * 0.5;
         this.rotation = Math.random() * 360;
-        this.rotationSpeed = (Math.random() - 0.5) * 2;
-        this.opacity = Math.random() * 0.5 + 0.35;
+        this.rotationSpeed = (Math.random() - 0.5) * 0.8;
+        this.opacity = Math.random() * 0.38 + 0.22;
         // Exact user colors: Pink #FFC5D3 & Biru Pastel #C8EAFF & Putih #FFFFFF
         const colors = [
           'rgba(255, 197, 211, ', // #FFC5D3 Pink Pastel
@@ -1209,7 +1316,7 @@
       }
       update() {
         this.y += this.speedY;
-        this.x += Math.sin(this.y * 0.015) * 0.8 + this.speedX;
+        this.x += Math.sin(this.y * 0.01) * 0.5 + this.speedX;
         this.rotation += this.rotationSpeed;
         if (this.y > height + 20) {
           this.reset(false);
