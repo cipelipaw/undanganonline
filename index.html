@@ -81,9 +81,34 @@
       font-family: 'Plus Jakarta Sans', sans-serif;
     }
 
-    /* Ambient Dreamy Background (Pink #FFC5D3, Putih #FFFFFF, Biru Pastel #C8EAFF) */
+    /* Fixed Romantic Garden Floral Background across entire invitation */
+    .fixed-garden-background {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      max-width: 28rem;
+      margin-left: auto;
+      margin-right: auto;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    /* Ambient Dreamy Background with floral garden shining through (Pink #FFC5D3, Putih #FFFFFF, Biru Pastel #C8EAFF) */
     .bg-gradient-pink-blue {
-      background: linear-gradient(180deg, #FFF6F8 0%, #FFFFFF 15%, #F0F8FF 35%, #FFF2F5 55%, #FFFFFF 75%, #F1F9FF 90%, #FFF5F8 100%);
+      background: linear-gradient(180deg, 
+        rgba(255, 246, 248, 0.20) 0%, 
+        rgba(255, 255, 255, 0.65) 15%, 
+        rgba(240, 248, 255, 0.60) 35%, 
+        rgba(255, 242, 245, 0.65) 55%, 
+        rgba(255, 255, 255, 0.68) 75%, 
+        rgba(241, 249, 255, 0.62) 90%, 
+        rgba(255, 245, 248, 0.70) 100%
+      );
     }
 
     .glass-card {
@@ -121,10 +146,10 @@
       position: absolute;
       inset: 0;
       background: linear-gradient(180deg, 
-        rgba(15, 23, 42, 0.32) 0%, 
+        rgba(15, 23, 42, 0.30) 0%, 
         rgba(200, 234, 255, 0.15) 30%, 
-        rgba(255, 197, 211, 0.22) 65%, 
-        rgba(255, 246, 248, 0.96) 100%
+        rgba(255, 197, 211, 0.18) 65%, 
+        rgba(255, 246, 248, 0.30) 100%
       );
       z-index: 2;
     }
@@ -385,21 +410,24 @@
   </section>
 
   <!-- ========================================== -->
+  <!-- FIXED ROMANTIC BOTANICAL GARDEN BACKGROUND -->
+  <!-- (EXTENDS SEAMLESSLY ALL THE WAY TO THE BOTTOM) -->
+  <!-- ========================================== -->
+  <div class="fixed-garden-background">
+    <img src="Assets/wedding-garden-bg.jpg" alt="Romantic Wedding Floral Garden" class="w-full h-full object-cover ken-burns-dreamy">
+  </div>
+
+  <!-- ========================================== -->
   <!-- MAIN CONTENT CONTAINER (App Like Frame) -->
   <!-- ========================================== -->
-  <div class="max-w-md mx-auto min-h-screen bg-gradient-pink-blue shadow-2xl relative overflow-hidden pb-24 border-x border-pink-100">
+  <div class="max-w-md mx-auto min-h-screen bg-gradient-pink-blue shadow-2xl relative overflow-hidden pb-24 border-x border-pink-100 z-10">
 
     <!-- ========================================== -->
     <!-- 2. CINEMATIC LIVING MOTION HERO (SEPERTI MOTION-06) -->
     <!-- (MOTION PENUH DENGAN BACKGROUND LIVING VIDEO, GAZEBO, BIRU PASTEL & PINK) -->
     <!-- ========================================== -->
-    <section id="motionHero" class="relative w-full h-[100vh] min-h-[640px] max-h-[880px] overflow-hidden flex items-center justify-center text-center px-4 py-8">
+    <section id="motionHero" class="relative w-full h-[100vh] min-h-[640px] max-h-[880px] overflow-hidden flex items-center justify-center text-center px-4 py-8 z-10">
       
-      <!-- ROMANTIC FLORAL LAKE GARDEN LIVING BACKGROUND (NO CASTLE, ELEGANT BOTANICAL LAKE GARDEN) -->
-      <div class="absolute inset-0 overflow-hidden z-[1]">
-        <img src="Assets/wedding-garden-bg.jpg" alt="Romantic Wedding Floral Garden" class="w-full h-full object-cover ken-burns-dreamy">
-      </div>
-
       <!-- Soft Dreamy Pastel Overlay (Pink #FFC5D3 & Biru Pastel #C8EAFF) -->
       <div class="hero-color-overlay"></div>
 
