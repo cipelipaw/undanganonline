@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Wedding of Dimas & Diva - 08.11.2026</title>
+  <title>The Wedding of Diva & Dimas - 08.11.2026</title>
   
   <!-- Favicon & Meta -->
-  <meta name="description" content="Undangan Pernikahan Prasetya Dimas Arvianto & Diva Danica - Minggu, 8 November 2026">
-  <meta property="og:title" content="The Wedding of Dimas & Diva">
+  <meta name="description" content="Undangan Pernikahan Diva Danica & Prasetya Dimas Arvianto - Minggu, 8 November 2026">
+  <meta property="og:title" content="The Wedding of Diva & Dimas">
   <meta property="og:description" content="Minggu, 8 November 2026. Kami mengundang Bapak/Ibu/Saudara/i untuk hadir dalam hari bahagia kami.">
   <meta property="og:image" content="Assets/couple-hands.jpg">
 
@@ -317,10 +317,12 @@
       transform: scale(0.92);
       transition: opacity 1.6s ease-out, transform 1.8s cubic-bezier(0.16, 1, 0.3, 1);
       will-change: opacity, transform;
+      overflow: visible;
     }
     .seq-reveal-3.revealed {
       opacity: 1;
       transform: scale(1);
+      will-change: auto; /* Release GPU compositing bounds on iOS Safari */
     }
 
     .seq-reveal-4 {
@@ -359,8 +361,10 @@
   <!-- CANVAS FLOATING PETALS (PINK & WHITE BLOSSOMS) -->
   <canvas id="petalsCanvas"></canvas>
 
-  <!-- BACKGROUND AUDIO -->
-  <audio id="weddingAudio" loop preload="auto">
+  <!-- BACKGROUND AUDIO (MP3 & M4A FOR IPHONE COMPATIBILITY + WEBM FALLBACK) -->
+  <audio id="weddingAudio" loop preload="auto" playsinline webkit-playsinline>
+    <source src="Assets/music.mp3" type="audio/mpeg">
+    <source src="Assets/music.m4a" type="audio/mp4">
     <source src="Assets/music.webm" type="audio/webm">
   </audio>
 
@@ -386,9 +390,9 @@
       
       <p class="font-serif text-sm tracking-[0.3em] uppercase text-white/90 mb-1 drop-shadow">The Wedding of</p>
       
-      <!-- Groom First: Dimas & Diva -->
-      <h1 class="font-script text-6xl sm:text-7xl text-white font-normal mb-8 drop-shadow-md tracking-wide">
-        Dimas & Diva
+      <!-- Bride & Groom: Diva & Dimas -->
+      <h1 class="font-script text-6xl sm:text-7xl text-white font-normal mb-8 drop-shadow-md tracking-wide leading-normal pb-2 overflow-visible">
+        Diva & Dimas
       </h1>
 
       <!-- Kepada Yth Box -->
@@ -403,8 +407,11 @@
         <span class="tracking-wider uppercase text-xs sm:text-sm font-bold text-slate-800">Buka Undangan</span>
       </button>
 
-      <p class="text-[11px] text-white/70 mt-5 flex items-center justify-center gap-1.5 drop-shadow">
+      <p class="text-[11px] text-white/80 mt-5 flex items-center justify-center gap-1.5 drop-shadow font-medium">
         <i class="fa-solid fa-volume-high text-xs"></i> Sentuh untuk membuka dengan musik
+      </p>
+      <p class="text-[10px] text-white/60 mt-1 max-w-[280px] mx-auto text-center leading-tight">
+        (Untuk iPhone: pastikan saklar fisik hening/silent di samping iPhone tidak aktif)
       </p>
     </div>
   </section>
@@ -455,10 +462,10 @@
             <span class="font-serif text-2xl sm:text-3xl font-bold tracking-widest text-[#596273]">D & D</span>
           </div>
 
-          <!-- Dimas & Diva (Elegant slow fade in with subtle scale-up effect) -->
-          <div class="seq-reveal-3">
-            <h1 class="font-script text-5xl sm:text-6xl text-[#596273] font-normal tracking-wide mb-1 gentle-float drop-shadow-sm">
-              Dimas & Diva
+          <!-- Diva & Dimas (Elegant slow fade in with subtle scale-up effect - Fix iPhone clipping) -->
+          <div class="seq-reveal-3 w-full overflow-visible py-1">
+            <h1 class="font-script text-5xl sm:text-6xl text-[#596273] font-normal tracking-wide mb-1 gentle-float drop-shadow-sm leading-normal pb-3 pt-1 px-2 overflow-visible">
+              Diva & Dimas
             </h1>
           </div>
           
@@ -505,10 +512,10 @@
 
       <!-- Hero Couple Arch Photo -->
       <div class="relative my-6 mx-auto w-64 h-84 rounded-t-full rounded-b-3xl overflow-hidden shadow-2xl border-4 border-white" data-aos="zoom-in" data-aos-duration="1200">
-        <img src="Assets/couple-hero.jpg" alt="Dimas & Diva" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700">
+        <img src="Assets/couple-hero.jpg" alt="Diva & Dimas" class="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700">
         <div class="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent"></div>
         <div class="absolute bottom-4 left-0 right-0 text-white text-center">
-          <p class="font-script text-3xl">Dimas & Diva</p>
+          <p class="font-script text-3xl leading-snug pb-1">Diva & Dimas</p>
           <p class="text-xs tracking-widest text-pink-200">08 . 11 . 2026</p>
         </div>
       </div>
@@ -539,7 +546,7 @@
         </div>
 
         <!-- Add to Calendar Button (Pink #FFC5D3 & Biru Pastel #C8EAFF) -->
-        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Pernikahan+Dimas+%26+Diva&dates=20261108T020000Z/20261108T080000Z&details=Pernikahan+Prasetya+Dimas+Arvianto+%26+Diva+Danica&location=Kp.2+Rt.08%2FRw.02+No.90+Jakasampurna+Bekasi+Barat+Kota+Bekasi" target="_blank" class="inline-flex items-center gap-2 mt-5 px-6 py-2.5 rounded-full bg-gradient-to-r from-[#FFC5D3] via-white to-[#C8EAFF] hover:from-[#FFAEC2] hover:to-[#B5E2FF] border border-[#FFC5D3]/60 text-slate-800 text-xs font-bold shadow-md transition-all duration-300">
+        <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Pernikahan+Diva+%26+Dimas&dates=20261108T020000Z/20261108T080000Z&details=Pernikahan+Diva+Danica+%26+Prasetya+Dimas+Arvianto&location=Kp.2+Rt.08%2FRw.02+No.90+Jakasampurna+Bekasi+Barat+Kota+Bekasi" target="_blank" class="inline-flex items-center gap-2 mt-5 px-6 py-2.5 rounded-full bg-gradient-to-r from-[#FFC5D3] via-white to-[#C8EAFF] hover:from-[#FFAEC2] hover:to-[#B5E2FF] border border-[#FFC5D3]/60 text-slate-800 text-xs font-bold shadow-md transition-all duration-300">
           <i class="fa-regular fa-calendar-plus text-sm text-rose-500"></i>
           <span>Simpan Tanggal ke Google Calendar</span>
         </a>
@@ -547,8 +554,7 @@
     </section>
 
     <!-- ========================================== -->
-    <!-- 4. PROFILE MEMPELAI (PRIA DAHULU) -->
-    <!-- (TANPA FOTO SESUAI REQUEST) -->
+    <!-- 4. PROFILE MEMPELAI (DIVA & DIMAS) -->
     <!-- ========================================== -->
     <section id="mempelai" class="py-12 px-6">
       <div class="text-center mb-10" data-aos="fade-up">
@@ -560,38 +566,8 @@
         </p>
       </div>
 
-      <!-- MEMPELAI PRIA (DIMAS) -->
-      <div class="glass-card rounded-3xl p-7 text-center relative overflow-hidden mb-8 shadow-xl border border-[#C8EAFF]/80" data-aos="fade-up" data-aos-duration="1000">
-        <img src="Assets/ornament-corner-pink.png" alt="Corner" class="absolute -top-8 -right-8 w-28 opacity-40 pointer-events-none sway-right">
-        
-        <div class="w-12 h-12 mx-auto rounded-full bg-[#C8EAFF] text-sky-800 flex items-center justify-center text-xl mb-3 shadow-inner">
-          <i class="fa-solid fa-user-tie"></i>
-        </div>
-
-        <h3 class="font-serif text-2xl sm:text-3xl font-bold text-slate-900 tracking-wide">Prasetya Dimas Arvianto</h3>
-        <p class="font-script text-3xl text-sky-600 my-1.5">Dimas</p>
-
-        <div class="my-4 text-xs text-slate-700 leading-relaxed">
-          <p class="font-bold text-slate-800 uppercase tracking-wider text-[11px] mb-1">Putra dari Keluarga :</p>
-          <p class="text-sm font-medium text-slate-900">Bapak Bambang Novianto, S.E, S.Sos, MM</p>
-          <p class="text-sm font-medium text-slate-900">& Ibu Arviana Wulandari, S.H, S.E, MM <span class="italic text-rose-600 text-xs">(Almh)</span></p>
-        </div>
-
-        <a href="https://www.instagram.com/dimasarvianto?stkn=Zm1peXRvOGF4cGR4" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#C8EAFF]/40 hover:bg-[#C8EAFF]/80 border border-[#C8EAFF] text-sky-900 text-xs font-semibold transition-colors shadow-sm">
-          <i class="fa-brands fa-instagram text-base text-sky-700"></i>
-          <span>@dimasarvianto</span>
-        </a>
-      </div>
-
-      <!-- AMPERSAND DIVIDER (PINK #FFC5D3 & BIRU PASTEL #C8EAFF) -->
-      <div class="text-center my-4" data-aos="zoom-in">
-        <span class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-r from-[#FFC5D3] to-[#C8EAFF] text-slate-800 font-serif text-2xl shadow-lg border-2 border-white">
-          &
-        </span>
-      </div>
-
       <!-- MEMPELAI WANITA (DIVA) -->
-      <div class="glass-card rounded-3xl p-7 text-center relative overflow-hidden mt-4 shadow-xl border border-[#FFC5D3]/80" data-aos="fade-up" data-aos-duration="1000">
+      <div class="glass-card rounded-3xl p-7 text-center relative overflow-hidden mb-8 shadow-xl border border-[#FFC5D3]/80" data-aos="fade-up" data-aos-duration="1000">
         <img src="Assets/ornament-corner-pink.png" alt="Corner" class="absolute -top-8 -left-8 w-28 opacity-40 pointer-events-none sway-left">
         
         <div class="w-12 h-12 mx-auto rounded-full bg-[#FFC5D3] text-rose-800 flex items-center justify-center text-xl mb-3 shadow-inner">
@@ -599,7 +575,7 @@
         </div>
 
         <h3 class="font-serif text-2xl sm:text-3xl font-bold text-slate-900 tracking-wide">Diva Danica</h3>
-        <p class="font-script text-3xl text-rose-500 my-1.5">Diva</p>
+        <p class="font-script text-3xl text-rose-500 my-1.5 leading-snug pb-1">Diva</p>
 
         <div class="my-4 text-xs text-slate-700 leading-relaxed">
           <p class="font-bold text-slate-800 uppercase tracking-wider text-[11px] mb-1">Putri dari Keluarga :</p>
@@ -610,6 +586,36 @@
         <a href="https://www.instagram.com/divadanica27?stkn=MWV2cThhM2JvN2cxbw==" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FFC5D3]/40 hover:bg-[#FFC5D3]/80 border border-[#FFC5D3] text-rose-900 text-xs font-semibold transition-colors shadow-sm">
           <i class="fa-brands fa-instagram text-base text-rose-600"></i>
           <span>@divadanica27</span>
+        </a>
+      </div>
+
+      <!-- AMPERSAND DIVIDER (PINK #FFC5D3 & BIRU PASTEL #C8EAFF) -->
+      <div class="text-center my-4" data-aos="zoom-in">
+        <span class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-gradient-to-r from-[#FFC5D3] to-[#C8EAFF] text-slate-800 font-serif text-2xl shadow-lg border-2 border-white">
+          &
+        </span>
+      </div>
+
+      <!-- MEMPELAI PRIA (DIMAS) -->
+      <div class="glass-card rounded-3xl p-7 text-center relative overflow-hidden mt-4 shadow-xl border border-[#C8EAFF]/80" data-aos="fade-up" data-aos-duration="1000">
+        <img src="Assets/ornament-corner-pink.png" alt="Corner" class="absolute -top-8 -right-8 w-28 opacity-40 pointer-events-none sway-right">
+        
+        <div class="w-12 h-12 mx-auto rounded-full bg-[#C8EAFF] text-sky-800 flex items-center justify-center text-xl mb-3 shadow-inner">
+          <i class="fa-solid fa-user-tie"></i>
+        </div>
+
+        <h3 class="font-serif text-2xl sm:text-3xl font-bold text-slate-900 tracking-wide">Prasetya Dimas Arvianto</h3>
+        <p class="font-script text-3xl text-sky-600 my-1.5 leading-snug pb-1">Dimas</p>
+
+        <div class="my-4 text-xs text-slate-700 leading-relaxed">
+          <p class="font-bold text-slate-800 uppercase tracking-wider text-[11px] mb-1">Putra dari Keluarga :</p>
+          <p class="text-sm font-medium text-slate-900">Bapak Bambang Novianto, S.E, S.Sos, MM</p>
+          <p class="text-sm font-medium text-slate-900">& Ibu Arviana Wulandari, S.H, S.E, MM <span class="italic text-rose-600 text-xs">(Almh)</span></p>
+        </div>
+
+        <a href="https://www.instagram.com/dimasarvianto?stkn=Zm1peXRvOGF4cGR4" target="_blank" class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#C8EAFF]/40 hover:bg-[#C8EAFF]/80 border border-[#C8EAFF] text-sky-900 text-xs font-semibold transition-colors shadow-sm">
+          <i class="fa-brands fa-instagram text-base text-sky-700"></i>
+          <span>@dimasarvianto</span>
         </a>
       </div>
     </section>
@@ -824,24 +830,7 @@
         </p>
       </div>
 
-      <!-- REKENING 1: BCA DIMAS -->
-      <div class="glass-card rounded-3xl p-6 mb-5 relative overflow-hidden shadow-xl border border-[#C8EAFF]" data-aos="fade-up" data-aos-duration="1000">
-        <div class="flex items-center justify-between mb-4">
-          <span class="font-bold text-lg text-blue-900 tracking-wider">BCA</span>
-          <i class="fa-solid fa-credit-card text-2xl text-sky-400"></i>
-        </div>
-        
-        <p class="text-xs uppercase text-slate-500 font-semibold">Nomor Rekening</p>
-        <p id="rekDimas" class="font-mono text-xl sm:text-2xl font-bold text-slate-900 tracking-widest my-1">6631163570</p>
-        <p class="text-xs text-slate-700 font-medium">a.n Prasetya Dimas Arvianto</p>
-
-        <button onclick="copyText('6631163570', 'Nomor rekening BCA Dimas')" class="mt-4 w-full py-2.5 rounded-full bg-gradient-to-r from-[#6BB3EC] to-[#438BC4] hover:opacity-90 text-white text-xs font-bold flex items-center justify-center gap-2 shadow-md transition-all">
-          <i class="fa-regular fa-copy"></i>
-          <span>Salin Nomor Rekening</span>
-        </button>
-      </div>
-
-      <!-- REKENING 2: BCA DIVA -->
+      <!-- REKENING 1: BCA DIVA -->
       <div class="glass-card rounded-3xl p-6 mb-5 relative overflow-hidden shadow-xl border border-[#FFC5D3]" data-aos="fade-up" data-aos-duration="1000">
         <div class="flex items-center justify-between mb-4">
           <span class="font-bold text-lg text-blue-900 tracking-wider">BCA</span>
@@ -853,6 +842,23 @@
         <p class="text-xs text-slate-700 font-medium">a.n Diva Danica</p>
 
         <button onclick="copyText('6631287937', 'Nomor rekening BCA Diva')" class="mt-4 w-full py-2.5 rounded-full bg-gradient-to-r from-[#F07A98] to-[#D95376] hover:opacity-90 text-white text-xs font-bold flex items-center justify-center gap-2 shadow-md transition-all">
+          <i class="fa-regular fa-copy"></i>
+          <span>Salin Nomor Rekening</span>
+        </button>
+      </div>
+
+      <!-- REKENING 2: BCA DIMAS -->
+      <div class="glass-card rounded-3xl p-6 mb-5 relative overflow-hidden shadow-xl border border-[#C8EAFF]" data-aos="fade-up" data-aos-duration="1000">
+        <div class="flex items-center justify-between mb-4">
+          <span class="font-bold text-lg text-blue-900 tracking-wider">BCA</span>
+          <i class="fa-solid fa-credit-card text-2xl text-sky-400"></i>
+        </div>
+        
+        <p class="text-xs uppercase text-slate-500 font-semibold">Nomor Rekening</p>
+        <p id="rekDimas" class="font-mono text-xl sm:text-2xl font-bold text-slate-900 tracking-widest my-1">6631163570</p>
+        <p class="text-xs text-slate-700 font-medium">a.n Prasetya Dimas Arvianto</p>
+
+        <button onclick="copyText('6631163570', 'Nomor rekening BCA Dimas')" class="mt-4 w-full py-2.5 rounded-full bg-gradient-to-r from-[#6BB3EC] to-[#438BC4] hover:opacity-90 text-white text-xs font-bold flex items-center justify-center gap-2 shadow-md transition-all">
           <i class="fa-regular fa-copy"></i>
           <span>Salin Nomor Rekening</span>
         </button>
@@ -919,7 +925,7 @@
       <div class="glass-card rounded-3xl p-6 shadow-xl" data-aos="fade-up">
         <div class="flex items-center justify-between mb-4 border-b border-pink-100 pb-3">
           <span class="text-xs font-bold uppercase tracking-wider text-slate-800">Daftar Doa Restu</span>
-          <span id="wishCountBadge" class="px-3 py-0.5 rounded-full bg-[#FFC5D3] text-rose-900 text-[11px] font-bold border border-[#FFC5D3]">4 Ucapan</span>
+          <span id="wishCountBadge" class="px-3 py-0.5 rounded-full bg-[#FFC5D3] text-rose-900 text-[11px] font-bold border border-[#FFC5D3]">Memuat...</span>
         </div>
 
         <div id="wishesList" class="space-y-4 max-h-96 overflow-y-auto pr-1">
@@ -940,12 +946,12 @@
 
       <div class="my-6" data-aos="fade-up">
         <p class="text-xs uppercase tracking-widest text-rose-500 font-bold">Kami yang berbahagia,</p>
-        <h3 class="font-script text-4xl text-slate-800 mt-1 mb-2">Dimas & Diva</h3>
+        <h3 class="font-script text-4xl text-slate-800 mt-1 mb-2 leading-snug pb-1">Diva & Dimas</h3>
         <p class="text-xs text-slate-600 font-serif">Beserta Keluarga Besar Kedua Mempelai</p>
       </div>
 
       <div class="mt-10 pt-6 border-t border-pink-100 text-[11px] text-slate-500">
-        <p>Made with love for Dimas & Diva</p>
+        <p>Made with love for Diva & Dimas</p>
         <p class="mt-1 font-semibold text-rose-500">08 . 11 . 2026</p>
       </div>
     </footer>
@@ -1107,13 +1113,29 @@
     }, 6000);
 
     function playAudio() {
-      audio.play().then(() => {
-        isPlaying = true;
-        discCircle.classList.remove('spin-paused');
-        musicIcon.className = "fa-solid fa-compact-disc text-xl text-rosepink-600";
-      }).catch(err => {
-        console.log("Autoplay was prevented:", err);
-      });
+      if (!audio) return;
+      const playPromise = audio.play();
+      if (playPromise !== undefined) {
+        playPromise.then(() => {
+          isPlaying = true;
+          discCircle.classList.remove('spin-paused');
+          musicIcon.className = "fa-solid fa-compact-disc text-xl text-rosepink-600";
+        }).catch(err => {
+          console.log("Audio play blocked or needs unlock:", err);
+          // Fallback unlock pada sentuhan pertama di layar
+          const unlockAudio = () => {
+            audio.play().then(() => {
+              isPlaying = true;
+              discCircle.classList.remove('spin-paused');
+              musicIcon.className = "fa-solid fa-compact-disc text-xl text-rosepink-600";
+            }).catch(() => {});
+            document.removeEventListener('touchstart', unlockAudio);
+            document.removeEventListener('click', unlockAudio);
+          };
+          document.addEventListener('touchstart', unlockAudio, { once: true });
+          document.addEventListener('click', unlockAudio, { once: true });
+        });
+      }
     }
 
     function toggleMusic() {
@@ -1202,12 +1224,18 @@
       modal.classList.remove('flex');
     }
 
-    // 6. Wishes / RSVP Management with LocalStorage
+    // 6. Wishes / RSVP Management (Real-time Shared Online Guestbook + Local Cache)
+    // =========================================================================
+    // Masukkan URL Google Apps Script Web App di bawah ini untuk mengaktifkan
+    // sinkronisasi Google Sheet live yang bisa dibaca dan ditulis oleh semua tamu.
+    // (Panduan setup Google Sheets tersedia di file GOOGLE_SHEETS_SETUP.md)
+    const WISHES_API_URL = ""; 
+
     const defaultWishes = [
       {
         name: "Rizky Firmansyah",
         status: "Hadir",
-        message: "Barakallahu lakuma wa baraka 'alaikuma wa jama'a bainakuma fii khoir. Selamat menempuh hidup baru Dimas & Diva! Bahagia selalu selamanya.",
+        message: "Barakallahu lakuma wa baraka 'alaikuma wa jama'a bainakuma fii khoir. Selamat menempuh hidup baru Diva & Dimas! Bahagia selalu selamanya.",
         time: "10 menit yang lalu"
       },
       {
@@ -1219,7 +1247,7 @@
       {
         name: "Bambang & Anisa",
         status: "Hadir",
-        message: "Selamat ya Mas Dimas dan Mbak Diva. Semoga selalu dilimpahkan cinta, rezeki, dan keberkahan dalam bahtera rumah tangganya.",
+        message: "Selamat ya Mbak Diva dan Mas Dimas. Semoga selalu dilimpahkan cinta, rezeki, dan keberkahan dalam bahtera rumah tangganya.",
         time: "3 jam yang lalu"
       },
       {
@@ -1230,23 +1258,17 @@
       }
     ];
 
-    function loadWishes() {
-      const stored = localStorage.getItem('dimas_diva_wishes');
-      let wishes = defaultWishes;
-      if (stored) {
-        try {
-          wishes = JSON.parse(stored);
-        } catch (e) {}
-      }
-
+    function renderWishesUI(wishes) {
       const listContainer = document.getElementById('wishesList');
       const countBadge = document.getElementById('wishCountBadge');
+      if (!listContainer || !countBadge) return;
+
       listContainer.innerHTML = '';
       countBadge.innerText = `${wishes.length} Ucapan`;
 
       wishes.forEach(item => {
         const div = document.createElement('div');
-        div.className = "p-3.5 rounded-2xl bg-white/90 border border-pink-100 shadow-sm";
+        div.className = "p-3.5 rounded-2xl bg-white/90 border border-pink-100 shadow-sm transition-all hover:shadow-md";
         
         let statusBadge = '';
         if (item.status === 'Hadir') {
@@ -1269,15 +1291,51 @@
       });
     }
 
-    function handleFormSubmit(e) {
+    async function loadWishes() {
+      // 1. Ambil data dari cache lokal terlebih dahulu (cepat & tanpa jeda)
+      const stored = localStorage.getItem('diva_dimas_wishes') || localStorage.getItem('dimas_diva_wishes');
+      let currentWishes = defaultWishes;
+      if (stored) {
+        try {
+          currentWishes = JSON.parse(stored);
+        } catch (e) {}
+      }
+      renderWishesUI(currentWishes);
+
+      // 2. Jika WISHES_API_URL dikonfigurasi, ambil data live dari Google Sheets / Server
+      if (WISHES_API_URL) {
+        try {
+          const res = await fetch(WISHES_API_URL);
+          if (res.ok) {
+            const data = await res.json();
+            if (Array.isArray(data) && data.length > 0) {
+              localStorage.setItem('diva_dimas_wishes', JSON.stringify(data));
+              renderWishesUI(data);
+            }
+          }
+        } catch (err) {
+          console.log("Online wishes sync note:", err);
+        }
+      }
+    }
+
+    async function handleFormSubmit(e) {
       e.preventDefault();
+      const submitBtn = e.target.querySelector('button[type="submit"]');
+      const originalBtnContent = submitBtn ? submitBtn.innerHTML : '';
+
       const name = document.getElementById('guestName').value.trim();
       const status = document.getElementById('attendance').value;
       const message = document.getElementById('guestMessage').value.trim();
 
       if (!name || !message) return;
 
-      const stored = localStorage.getItem('dimas_diva_wishes');
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-1.5"></i> Mengirim Ucapan...';
+      }
+
+      const stored = localStorage.getItem('diva_dimas_wishes') || localStorage.getItem('dimas_diva_wishes');
       let wishes = defaultWishes;
       if (stored) {
         try {
@@ -1292,13 +1350,40 @@
         time: "Baru saja"
       };
 
+      // Tampilkan segera di antarmuka lokal
       wishes.unshift(newWish);
-      localStorage.setItem('dimas_diva_wishes', JSON.stringify(wishes));
+      localStorage.setItem('diva_dimas_wishes', JSON.stringify(wishes));
+      renderWishesUI(wishes);
+
+      // Kirim ke Google Sheets / Cloud jika URL API telah diisi
+      if (WISHES_API_URL) {
+        try {
+          await fetch(WISHES_API_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newWish)
+          });
+        } catch(err) {
+          console.warn("Gagal mengirim ke cloud:", err);
+        }
+      }
 
       // Reset form
       document.getElementById('guestMessage').value = '';
+      if (submitBtn) {
+        submitBtn.disabled = false;
+        submitBtn.innerHTML = originalBtnContent;
+      }
+
       showToast('Terima kasih atas doa restunya!');
-      loadWishes();
+    }
+
+    // Auto-polling jika terhubung ke cloud (tiap 30 detik agar pesan tamu lain muncul otomatis)
+    if (WISHES_API_URL) {
+      setInterval(loadWishes, 30000);
     }
 
     function escapeHtml(text) {
