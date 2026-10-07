@@ -1226,10 +1226,8 @@
 
     // 6. Wishes / RSVP Management (Real-time Shared Online Guestbook + Local Cache)
     // =========================================================================
-    // Masukkan URL Google Apps Script Web App di bawah ini untuk mengaktifkan
-    // sinkronisasi Google Sheet live yang bisa dibaca dan ditulis oleh semua tamu.
-    // (Panduan setup Google Sheets tersedia di file GOOGLE_SHEETS_SETUP.md)
-    const WISHES_API_URL = ""; 
+    // URL Google Apps Script Web App yang telah di-deploy oleh pengguna:
+    const WISHES_API_URL = "https://script.google.com/macros/s/AKfycbzD9XZYIFGOWBEaduh-n1m9XB-_vmKyqxjBBUoaP1_EPBtDu_BJsK_gmj4muqwW6MtI/exec"; 
 
     const defaultWishes = [
       {
@@ -1355,17 +1353,19 @@
       localStorage.setItem('diva_dimas_wishes', JSON.stringify(wishes));
       renderWishesUI(wishes);
 
-      // Kirim ke Google Sheets / Cloud jika URL API telah diisi
+      // Kirim ke Google Sheets secara live
       if (WISHES_API_URL) {
         try {
           await fetch(WISHES_API_URL, {
             method: 'POST',
             mode: 'no-cors',
             headers: {
-              'Content-Type': 'application/json'
+              'Content-Type': 'text/plain;charset=utf-8'
             },
             body: JSON.stringify(newWish)
           });
+          // Muat ulang dari sheet setelah 2 detik agar sinkron
+          setTimeout(loadWishes, 2000);
         } catch(err) {
           console.warn("Gagal mengirim ke cloud:", err);
         }
